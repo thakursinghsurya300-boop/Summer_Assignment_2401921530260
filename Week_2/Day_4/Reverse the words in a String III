@@ -1,0 +1,15 @@
+class Solution {
+    public String reverseWords(String s) {
+        String[] words = s.split(" ");   // split by spaces
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < words.length; i++) {
+            result.append(new StringBuilder(words[i]).reverse()); // reverse each word
+            if (i < words.length - 1) {
+                result.append(" "); // add space between words
+            }
+        }
+
+        return result.toString();
+    }
+}
