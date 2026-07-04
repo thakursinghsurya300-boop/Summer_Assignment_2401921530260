@@ -1,0 +1,21 @@
+class Solution {
+    public int strStr(String haystack, String needle) {
+        int n = haystack.length();
+        int m = needle.length();
+
+        if (m == 0) return 0;   // empty needle
+        if (n < m) return -1;   // haystack shorter than needle
+
+        // check every possible starting position
+        for (int k = 0; k <= n - m; k++) {
+            int i = 0;
+            while (i < m && haystack.charAt(k + i) == needle.charAt(i)) {
+                i++;
+            }
+            if (i == m) {
+                return k;  // found match at index k
+            }
+        }
+        return -1;  // not found
+    }
+}
